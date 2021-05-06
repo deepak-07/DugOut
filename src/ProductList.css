@@ -1,0 +1,8 @@
+.product_list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.product_list > div {
+  margin: auto;
+  flex: 20%;
+}
