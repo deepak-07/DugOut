@@ -10,8 +10,8 @@
   flex-direction: column;
 }
 .welcome_text {
-  border: 2px solid blue;
+  border: 2px solid rgb(84, 101, 102);
   padding: 1rem 1rem;
   font-weight: bold;
-  color: lightcoral;
+  color: #696a6b;
 }

@@ -8,7 +8,7 @@ export default function Navbar() {
       <div class="nav-pages">
         <li>
           <NavLink end activeClassName="nav-active" to="/">
-            Home
+            DugOut
           </NavLink>
         </li>
         <li>

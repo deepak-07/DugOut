@@ -1,6 +1,6 @@
 import { useCart } from "./context";
 import { Link } from "react-router-dom";
-import { categories } from "../src/backend/db";
+import { categories } from "../src/db";
 export const Filter = () => {
   const { state, dispatch } = useCart();
   return (
@@ -62,7 +62,7 @@ export const Filter = () => {
           />
           Fast Delivery Only
         </label>
-        <div>
+        {/* <div>
           {categories.map((item) => {
             return (
               <label>
@@ -77,7 +77,7 @@ export const Filter = () => {
               </label>
             );
           })}
-        </div>
+        </div> */}
       </fieldset>
     </>
   );

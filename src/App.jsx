@@ -18,29 +18,6 @@ export default function App() {
   const [route, setRoute] = useState("home");
   const { state, fetchAndAddToList } = useCart();
 
-  useEffect(() => {
-    fetchAndAddToList({
-      url: "https://try-ecom-backend.deepakyadav8.repl.co/",
-      dispatchType: "FETCH_PRODUCTS",
-      list: "itemsInCart"
-    });
-  }, []);
-
-  useEffect(() => {
-    fetchAndAddToList({
-      url: "https://try-ecom-backend.deepakyadav8.repl.co/",
-      dispatchType: "ADD_TO_WISHLIST",
-      list: "itemsInWishList"
-    });
-  }, []);
-  useEffect(() => {
-    fetchAndAddToList({
-      url: "/products",
-      dispatchType: "ADD_TO_PRODUCTS",
-      list: "productsDB"
-    });
-  }, []);
-
   return (
     <div
       className="App"
@@ -49,7 +26,6 @@ export default function App() {
         color: theme ? "black" : "white"
       }}
     >
-      <h1>Loser ka ecommerce</h1>
       <Navbar />
 
       <Routes>

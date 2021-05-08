@@ -20,21 +20,14 @@ export default function ProductListing() {
   const {
     state: {
       productsDB,
+      itemsInCart,
+      itemsInWishList,
       sortFilterStates: { showInventoryAll, showFastDeliveryOnly, sortBy }
     },
-    dispatch,
-    fetchAndAddToList
+    dispatch
   } = useCart();
 
   const { language, lang } = useLang();
-
-  useEffect(() => {
-    fetchAndAddToList({
-      url: "https://try-ecom-backend.deepakyadav8.repl.co",
-      dispatchType: "FETCH_PRODUCTS",
-      list: "products"
-    });
-  }, []);
 
   function getSortedData(productList, sortBy) {
     if (sortBy && sortBy === "PRICE_HIGH_TO_LOW") {
@@ -54,13 +47,13 @@ export default function ProductListing() {
       )
       .filter(({ inStock }) => (showInventoryAll ? true : inStock));
   }
-  function getSelectedCategoryData(productList, category) {
-    return category
-      ? productList.filter((item) => {
-          return item.category === category;
-        })
-      : productList;
-  }
+  // function getSelectedCategoryData(productList, category) {
+  //   return category
+  //     ? productList.filter((item) => {
+  //         return item.category === category;
+  //       })
+  //     : productList;
+  // }
 
   const sortedData = getSortedData(productsDB, sortBy);
   // const categoriedData = getSelectedCategoryData(
@@ -98,7 +91,7 @@ export default function ProductListing() {
                 <span className="price">Price:Rs {product.price}</span>
 
                 {/* {language[lang].addToCart} */}
-                {state.itemsInCart.some((item) => item.id === product.id) ? (
+                {itemsInCart.some((item) => item.id === product.id) ? (
                   <Link to="/cart">
                     <button className="btn btn-primary ">Go To Cart</button>
                   </Link>
@@ -113,13 +106,11 @@ export default function ProductListing() {
                     {!product.inStock ? "Out Of Stock" : "Add to Cart"}
                   </button>
                 )}
-                {state.itemsInWishList.some(
-                  (item) => item.id === product.id
-                ) ? (
+                {itemsInWishList.some((item) => item.id === product.id) ? (
                   <FontAwesomeIcon
                     className="fontAwesome"
                     icon="heart"
-                    color="#be185d"
+                    color="rgb(41, 62, 64)"
                     cursor="pointer"
                     onClick={() =>
                       dispatch({
@@ -132,7 +123,7 @@ export default function ProductListing() {
                   <FontAwesomeIcon
                     className="fontAwesome"
                     icon="heart"
-                    color="#e09db9"
+                    color="rgb(84, 101, 101)"
                     cursor="pointer"
                     onClick={() =>
                       dispatch({ type: "ADD_TO_WISHLIST", payload: product })
