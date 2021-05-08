@@ -20,7 +20,7 @@ export default function WishList() {
                   // color="#e09db9"
                   cursor="pointer"
                   onClick={() =>
-                    dispatch({ type: "REMOVE_FROM_CART", payload: product })
+                    dispatch({ type: "REMOVE_FROM_WISHLIST", payload: product })
                   }
                 />
               </div>

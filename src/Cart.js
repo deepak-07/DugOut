@@ -4,7 +4,6 @@ import { useTheme } from "./themeContext";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { itemsInCart } from "../src/db";
 
 export default function Cart() {
   const { state, dispatch } = useCart();
@@ -12,7 +11,7 @@ export default function Cart() {
   return (
     <>
       <br />
-      {/* <h2> {language[lang].cart}</h2> */}
+
       {state.itemsInCart.length !== 0 ? (
         <div className="cart_total">
           <div class="card">
